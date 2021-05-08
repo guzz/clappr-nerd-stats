@@ -1,10 +1,10 @@
 {
-  "name": "clappr-nerd-stats",
+  "name": "@guzzj/clappr-nerd-stats",
   "version": "2.0.2",
   "description": "Clappr UI plugin to show clappr-stats info",
   "repository": {
     "type": "git",
-    "url": "git@github.com:lucasrodcosta/clappr-nerd-stats.git"
+    "url": "git@github.com:guzz/clappr-nerd-stats.git"
   },
   "files": [
     "/dist",
