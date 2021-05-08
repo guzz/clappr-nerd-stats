@@ -1,144 +1,101 @@
 <% general = metrics.general %>
-<% counters = metrics.counters %>
-<% timers = metrics.timers %>
-<% extra = metrics.extra %>
 
-<div class="icon-show-stats <%= iconPosition %>" data-show-stats-button>
-  <a>&#9432;</a>
+<div class="icon-show-stats <%= buttonIsShowing ? '' : 'hide-button' %> <%= iconPosition %> <%= isActive %> <%= isReady ? 'ready' : '' %>" data-show-stats-button>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" height="50" width="50">
+    <defs
+      id="defs26">
+      <filter
+        style="color-interpolation-filters:sRGB;"
+        inkscape:label="Drop Shadow"
+        id="filter924">
+        <feFlood
+          flood-opacity="0.498039"
+          flood-color="rgb(0,0,0)"
+          result="flood"
+          id="feFlood914" />
+        <feComposite
+          in="flood"
+          in2="SourceGraphic"
+          operator="in"
+          result="composite1"
+          id="feComposite916" />
+        <feGaussianBlur
+          in="composite1"
+          stdDeviation="3"
+          result="blur"
+          id="feGaussianBlur918" />
+        <feOffset
+          dx="0"
+          dy="0"
+          result="offset"
+          id="feOffset920" />
+        <feComposite
+          in="SourceGraphic"
+          in2="offset"
+          operator="over"
+          result="composite2"
+          id="feComposite922" />
+      </filter>
+    </defs>
+    <path
+       id="path20"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.857712;filter:url(#filter924)"
+       d="m 16.21416,8.6896525 c -5.491328,0 -9.8837771,4.3947995 -9.8837771,9.8861285 0,2.638942 0.6337291,4.876394 2.2828618,7.347002 h 6.4018843 l 3.178607,-11.861002 a 1.2038534,1.2038534 0 0 1 1.116746,-0.891045 1.2038534,1.2038534 0 0 1 1.208434,0.891045 l 4.631551,17.291907 3.166852,-11.816332 a 1.2038534,1.2038534 0 0 1 2.320478,-0.01645 l 1.824408,6.401884 h 8.924551 c 1.649132,-2.470608 2.282861,-4.70806 2.282861,-7.347002 0,-5.491329 -4.392449,-9.8861285 -9.883777,-9.8861285 -4.502887,0 -7.028616,2.5277165 -8.78584,4.5045945 -1.757224,-1.976878 -4.282953,-4.5045945 -8.78584,-4.5045945 z m 3.140991,10.3328245 -2.254648,8.414378 a 1.2038534,1.2038534 0 0 1 -1.161415,0.893395 h -5.463819 c 2.766077,3.176431 7.144541,6.95864 13.86644,12.429954 L 25,41.310347 25.658291,40.760204 C 32.38019,35.28889 36.758654,31.506681 39.524731,28.330249 h -7.97238 A 1.2038534,1.2038534 0 0 1 30.39564,27.455663 l -0.879291,-3.089269 -3.202117,11.950342 a 1.2038534,1.2038534 0 0 1 -2.32518,0 z" />
+  </svg>
 </div>
 
-<div class="stats-box">
+<div class="stats-box <%= isBoxActive %>">
   <a class="close-button" data-close-button>&times;</a>
+  <div class="nerd-title">
+    <%= nerdTitle %>
+  </div>
+  <div class="general">
+    <div class="general-metric">
+      <div class="metric">
+        <%= general.displayResolution %>
+      </div>
+      <div class="metric-title">
+        resolution
+      </div>
+    </div>
+    <div class="general-metric">
+      <div class="metric">
+        <%= general.volume %>
+      </div>
+      <div class="metric-title">
+        volume
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="metric-selector">
+      <% for (let i = 0; i < Object.keys(metrics).length; i++) { %>
+        <% if (Object.keys(metrics)[i] !== 'general') { %>
+          <div class="metric-selector-item">
+            <a href="#" class="<%= selectedMetricsType === i ? 'active' : '' %>" data-metric-selector-select="<%=i %>">
+              <%= metricLabels[Object.keys(metrics)[i]].label %>
+            </a>
+          </div>
+        <% }; %>
+      <% }; %>
+    </div>
+  </div>
 
-  <ul>
-    <li class="title"><span>General</span></li>
-    <li>
-      Display resolution:
-      <div><span><%= general.displayResolution %></span></div>
-    </li>
-    <li>
-      Volume:
-      <div><span><%= general.volume %></span></div>
-    </li>
-  </ul>
-
-  <ul>
-    <li class="title"><span>Counters</span></li>
-    <li>
-      Plays:
-      <div><span><%= counters.play %></span></div>
-    </li>
-    <li>
-      Pauses:
-      <div><span><%= counters.pause %></span></div>
-    </li>
-    <li>
-      Errors:
-      <div><span><%= counters.error %></span></div>
-    </li>
-    <li>
-      Bufferings:
-      <div><span><%= counters.buffering %></span></div>
-    </li>
-    <li>
-      Decoded frames:
-      <div><span><%= counters.decodedFrames %></span></div>
-    </li>
-    <li>
-      Dropped frames:
-      <div><span><%= counters.droppedFrames %></span></div>
-    </li>
-    <li>
-      Frames per second:
-      <div><span><%= counters.fps %></span></div>
-    </li>
-    <li>
-      Bitrate changes:
-      <div><span><%= counters.changeLevel %></span></div>
-    </li>
-    <li>
-      Seeks:
-      <div><span><%= counters.seek %></span></div>
-    </li>
-    <li>
-      Fullscreen:
-      <div><span><%= counters.fullscreen %></span></div>
-    </li>
-    <li>
-      DVR seeks:
-      <div><span><%= counters.dvrUsage %></span></div>
-    </li>
-  </ul>
-
-  <ul>
-    <li class="title"><span>Timers</span></li>
-    <li>
-      Startup time:
-      <div><span><%= timers.startup %></span></div>
-    </li>
-    <li>
-      Watching time:
-      <div><span><%= timers.watch %></span></div>
-    </li>
-    <li>
-      Pause time:
-      <div><span><%= timers.pause %></span></div>
-    </li>
-    <li>
-      Buffering time:
-      <div><span><%= timers.buffering %></span></div>
-    </li>
-    <li>
-      Session time:
-      <div><span><%= timers.session %></span></div>
-    </li>
-    <li>
-      Latency:
-      <div><span><%= timers.latency %></span></div>
-    </li>
-  </ul>
-
-  <ul>
-    <li class="title"><span>Extra</span></li>
-    <li>
-      Playback:
-      <div><span><%= extra.playbackName %></span></div>
-    </li>
-    <li>
-      Playback type:
-      <div><span><%= extra.playbackType %></span></div>
-    </li>
-    <li>
-      Buffer size:
-      <div><span><%= extra.buffersize %></span></div>
-    </li>
-    <li>
-      Video duration:
-      <div><span><%= extra.duration %></span></div>
-    </li>
-    <li>
-      Current time:
-      <div><span><%= extra.currentTime %></span></div>
-    </li>
-    <li>
-      Bitrate weighted mean:
-      <div><span><%= extra.bitrateWeightedMean %></span></div>
-    </li>
-    <li>
-      Bitrate most used:
-      <div><span><%= extra.bitrateMostUsed %></span></div>
-    </li>
-    <li>
-      % Watched:
-      <div><span><%= extra.watchedPercentage %></span></div>
-    </li>
-    <li>
-      % Buffering:
-      <div><span><%= extra.bufferingPercentage %></span></div>
-    </li>
-    <li>
-      Bandwidth:
-      <div><span><%= extra.bandwidth %></span></div>
-    </li>
-  </ul>
+  <div class="stats <%= statsScroll ? 'scroll' : '' %>">
+    <% for (let i = 0; i < Object.keys(metrics).length; i++) { %>
+      <% if (Object.keys(metrics)[i] !== 'general') { %>
+        <% metricType = Object.keys(metrics)[i] %>
+        <ul id="list-<%= i %>" class="<%= selectedMetricsType === i ? 'current' : '' %>">
+          <% for (let a = 0; a < Object.keys(metrics[metricType]).length; a++) { %>
+            <% metric = Object.keys(metrics[metricType])[a] %>
+            <li>
+              <%= metricLabels[metricType].metrics[metric].label %>
+              <%= metricLabels[metricType].metrics[metric].separator %>
+              <div><span><%= metrics[metricType][metric] %></span></div>
+            </li>
+          <% }; %>
+        </ul>
+      <% }; %>
+    <% }; %>
+  </div>
 </div>

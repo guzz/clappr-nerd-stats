@@ -1,4 +1,4 @@
-var humanFormat = require('human-format')
+import humanFormat from 'human-format'
 
 const timeScale = new humanFormat.Scale({
   ms: 1,
