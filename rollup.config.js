@@ -29,8 +29,7 @@ const plugins = [
 const mainBundle = {
   input: 'src/clappr-nerd-stats.js',
   external: [
-    '@clappr/core',
-    '@guzzj/clappr-stats'
+    '@clappr/core'
   ],
   output: [
     {
@@ -38,8 +37,7 @@ const mainBundle = {
       file: pkg.main,
       format: 'umd',
       globals: {
-        '@clappr/core': 'Clappr',
-        '@guzzj/clappr-stats': 'ClapprStats'
+        '@clappr/core': 'Clappr'
       },
     },
     !!process.env.MINIMIZE && {
@@ -47,8 +45,7 @@ const mainBundle = {
       file: 'dist/clappr-nerd-stats.min.js',
       format: 'umd',
       globals: {
-        '@clappr/core': 'Clappr',
-        '@guzzj/clappr-stats': 'ClapprStats'
+        '@clappr/core': 'Clappr'
       },
       plugins: terser(),
     },
@@ -60,7 +57,6 @@ const esmBundle = {
   input: 'src/clappr-nerd-stats.js',
   external: [
     '@clappr/core',
-    '@guzzj/clappr-stats',
     /@babel\/runtime/
   ],
   output: {
@@ -68,8 +64,7 @@ const esmBundle = {
     file: pkg.module,
     format: 'esm',
     globals: {
-      '@clappr/core': 'Clappr',
-      '@guzzj/clappr-stats': 'ClapprStats'
+      '@clappr/core': 'Clappr'
     },
   },
   plugins: [

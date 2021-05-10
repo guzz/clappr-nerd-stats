@@ -544,8 +544,8 @@ var ClapprNerdStats = /*#__PURE__*/function (_UICorePlugin) {
       var style = Styler.getStyleFor(css_248z, {
         baseUrl: this.options.baseUrl
       });
-      this.core.$el.append(style);
-      this.core.$el.append(this.$el);
+      this.core.$el.append(style[0]);
+      this.core.$el.append(this.$el[0]);
       this.hide();
       return this;
     }

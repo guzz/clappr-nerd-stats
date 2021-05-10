@@ -6,7 +6,7 @@ const player = new Clappr.Player({
   plugins: [
     window.ClapprNerdStats,
     window.ClapprStats,
-    window.LevelSelector
+    window.LevelSelector,
   ],
   clapprNerdStats: {
     shortcut: ['command+shift+s', 'ctrl+shift+s'],
