@@ -928,15 +928,15 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@guzzj/clappr-core@^0.4.18":
+"@guzzj/clappr-core@^0.4.19":
   version "0.4.19"
   resolved "https://registry.yarnpkg.com/@guzzj/clappr-core/-/clappr-core-0.4.19.tgz#30c3bbf8530cc4e806f4231d258fe4ffaeecfbc5"
   integrity sha512-xD6E4lflQ4S4n4p2pMJsoM0CKsIjVwyejf6wl1y+OQzKaADpJ+esZ1Psbq2BMlMXpwaHHiOwEfHOPjy+OiHTWw==
 
-"@guzzj/clappr-stats-plugin@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@guzzj/clappr-stats-plugin/-/clappr-stats-plugin-0.2.1.tgz#6c3173d6341edcd8a90dd1094495909beb159789"
-  integrity sha512-juJuQAR4lQUPJ6qzmcKH2QclV8aQ05INq2v/eMvtBQMRYiVPTV0RO5o7ZmRHp6iVK6HhwrgZL+3uhxCmrurWlA==
+"@guzzj/clappr-stats-plugin@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@guzzj/clappr-stats-plugin/-/clappr-stats-plugin-0.2.2.tgz#6bd255225adc2122584ff805563b63bde552ec7d"
+  integrity sha512-Cc0kpRWHqT+22SsVt7Xu49PfwVm1IUrt4b/8zxGQfJfo2tAPkLd4zFL6Co1XdK2upRq2MsEo9D880Em9fNUJyw==
   dependencies:
     "@rollup/plugin-buble" "^0.21.3"
     lodash.get "^4.4.2"
