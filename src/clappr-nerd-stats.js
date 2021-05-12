@@ -1,4 +1,4 @@
-import {UICorePlugin, Events, Styler, template} from '@clappr/core'
+import {UICorePlugin, Events, Styler, template} from '@guzzj/clappr-core'
 import ClapprStats from '@guzzj/clappr-stats-plugin'
 import pluginStyle from './public/clappr-nerd-stats.css'
 import pluginHtml from './public/clappr-nerd-stats.html'

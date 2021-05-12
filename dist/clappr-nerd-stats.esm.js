@@ -3,7 +3,7 @@ import _createClass from '@babel/runtime/helpers/createClass';
 import _inherits from '@babel/runtime/helpers/inherits';
 import _possibleConstructorReturn from '@babel/runtime/helpers/possibleConstructorReturn';
 import _getPrototypeOf from '@babel/runtime/helpers/getPrototypeOf';
-import { template, Events, Styler, UICorePlugin } from '@clappr/core';
+import { template, Events, Styler, UICorePlugin } from '@guzzj/clappr-core';
 import ClapprStats from '@guzzj/clappr-stats-plugin';
 import get from 'lodash.get';
 import cloneDeep from 'lodash.clonedeep';
