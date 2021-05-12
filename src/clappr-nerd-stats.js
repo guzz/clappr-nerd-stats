@@ -1,4 +1,4 @@
-import {UICorePlugin, Events, Styler, template} from '@guzzj/clappr-core'
+import { UICorePlugin, Events, Styler, template, version } from '@guzzj/clappr-core'
 import ClapprStats from '@guzzj/clappr-stats-plugin'
 import pluginStyle from './public/clappr-nerd-stats.css'
 import pluginHtml from './public/clappr-nerd-stats.html'
@@ -156,6 +156,8 @@ const METRICS_LABELS = {
 export default class ClapprNerdStats extends UICorePlugin {
   get name() { return 'clappr-nerd-stats' }
   get template() { return template(pluginHtml) }
+
+  get supportedVersion() { return { min: version } }
 
   get attributes() {
     return {
